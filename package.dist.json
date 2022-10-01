@@ -1,0 +1,11 @@
+{
+    "name": "@blazingworks/utils",
+    "version": "1.0.0",
+    "description": "Various development utilities by BlazingWorks",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "repository": "https://github.com/blazingworks/utils.git",
+    "author": "BlazingWorks",
+    "license": "MIT",
+    "private": false
+}

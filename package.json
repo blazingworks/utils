@@ -2,18 +2,18 @@
     "name": "@blazingworks/utils",
     "version": "1.0.0",
     "description": "Various development utilities by BlazingWorks",
-    "main": "dist/utils.js",
-    "types": "dist/utils.d.ts",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "files": [
         "dist/**/*"
     ],
     "repository": "https://github.com/blazingworks/utils.git",
     "author": "BlazingWorks",
     "license": "MIT",
-    "private": false,
+    "private": true,
     "scripts": {
         "build": "rimraf dist && tsc && npm run build:after",
-        "build:after": "cp package.dist.json dist/package.json && cp README.md dist/README.md && cp LICENSE dist/LICENSE && cp TRANSPORTS.md dist/TRANSPORTS.md",
+        "build:after": "cp package.dist.json dist/package.json && cp README.md dist/README.md && cp LICENSE dist/LICENSE",
         "prettier": "prettier --write \"src/**/*.ts\"",
         "lint": "eslint src/**/*.ts",
         "prettier:ci": "prettier --check \"src/**/*.ts\"",
