@@ -1,18 +1,19 @@
 {
-    "name": "@blazingworks/helloworld",
+    "name": "@blazingworks/utils",
     "version": "1.0.0",
-    "description": "Hello World NPM Library by BlazingWorks, acts as a boilerplate for future libraries",
-    "main": "dist/helloworld.js",
-    "types": "dist/helloworld.d.ts",
+    "description": "Various development utilities by BlazingWorks",
+    "main": "dist/utils.js",
+    "types": "dist/utils.d.ts",
     "files": [
         "dist/**/*"
     ],
-    "repository": "https://github.com/blazingworks/helloworld.git",
+    "repository": "https://github.com/blazingworks/utils.git",
     "author": "BlazingWorks",
     "license": "MIT",
     "private": false,
     "scripts": {
-        "build": "rimraf dist && tsc",
+        "build": "rimraf dist && tsc && npm run build:after",
+        "build:after": "cp package.dist.json dist/package.json && cp README.md dist/README.md && cp LICENSE dist/LICENSE && cp TRANSPORTS.md dist/TRANSPORTS.md",
         "prettier": "prettier --write \"src/**/*.ts\"",
         "lint": "eslint src/**/*.ts",
         "prettier:ci": "prettier --check \"src/**/*.ts\"",
