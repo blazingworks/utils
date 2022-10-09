@@ -85,3 +85,25 @@ export function surround(text: string, surrounding: SurroundingCharacters | stri
         }
     }
 }
+
+// Multi Replace
+export function multiReplace(text: string, replacements: [string, string][] | { [key: string]: string }, replaceAll = true): string {
+    if (Array.isArray(replacements)) {
+        for (const replacement of replacements) {
+            if (replaceAll) {
+                text = text.replaceAll(replacement[0], replacement[1]);
+            } else {
+                text = text.replace(replacement[0], replacement[1]);
+            }
+        }
+    } else {
+        for (const key in replacements) {
+            if (replaceAll) {
+                text = text.replaceAll(key, replacements[key]);
+            } else {
+                text = text.replace(key, replacements[key]);
+            }
+        }
+    }
+    return text;
+}

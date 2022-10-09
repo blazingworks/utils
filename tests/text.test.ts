@@ -1,4 +1,4 @@
-import { setCapitilization, uppercase, lowercase, capitalizeFirstLetter, construct, surround } from "../src/text";
+import { setCapitilization, uppercase, lowercase, capitalizeFirstLetter, construct, surround, multiReplace } from "../src/text";
 
 test(`Capitilization`, () => {
     // setCapitilization
@@ -38,4 +38,31 @@ test(`Surrounding`, () => {
     expect(surround("Hello World", "🌐")).toBe("🌐Hello World🌐");
     expect(surround("Hello World", ["🌍"])).toBe("🌍Hello World🌍");
     expect(surround("Hello World", ["👋 ", " 🌍"])).toBe("👋 Hello World 🌍");
+});
+
+test(`Multi replace`, () => {
+    expect(
+        multiReplace("Hello World", [
+            ["Hello", "Hi"],
+            ["World", "Earth"],
+        ])
+    ).toBe("Hi Earth");
+
+    expect(
+        multiReplace("Hello World! Hello beautiful World!", {
+            Hello: "Hi",
+            World: "Earth",
+        })
+    ).toBe("Hi Earth! Hi beautiful Earth!");
+
+    expect(
+        multiReplace(
+            "Hello World! Hello beautiful World!",
+            {
+                Hello: "Hi",
+                World: "Earth",
+            },
+            false
+        )
+    ).toBe("Hi Earth! Hello beautiful World!");
 });
